@@ -1,5 +1,6 @@
-package huszonegybuvesztrukk;
+package modell;
 
+import modell.Lap;
 import java.util.Scanner;
 
 public class Pakli 
@@ -18,6 +19,13 @@ public class Pakli
     {
         return pakli[index];
     }  
+
+    public Lap[] getPakli() 
+    {
+        return pakli;
+    }
+    
+    
   
     public void feltolt() 
     {
@@ -35,17 +43,7 @@ public class Pakli
         }
     }    
     
-    public void kirak() 
-    {
-        for (int i = 1; i < pakli.length; i++) 
-        {
-            System.out.print("%-25s".formatted(pakli[i].getLeiras()));
-            if (i % 3 == 0) 
-            {
-                System.out.println("");
-            }
-        }
-    }
+
     
     public void kever(int oszlopSzam) 
     {

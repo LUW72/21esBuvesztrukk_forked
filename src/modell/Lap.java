@@ -1,4 +1,4 @@
-package huszonegybuvesztrukk;
+package modell;
 
 
 public class Lap 

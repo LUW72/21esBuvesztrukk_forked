@@ -1,5 +1,6 @@
-package huszonegybuvesztrukk;
+package nezet;
 
+import modell.Pakli;
 import java.util.Scanner;
 
 public class KartyaTrukk 
@@ -19,7 +20,7 @@ public class KartyaTrukk
         
         for (int i = 0; i < 3; i++) 
         {
-            this.pakli.kirak();
+            this.kirak(this.pakli);
             int oszlop = melyik();
             this.pakli.kever(oszlop);
         }
@@ -39,6 +40,17 @@ public class KartyaTrukk
         return oszlopSzam;
     }
 
+    public void kirak(Pakli pakli) 
+    {
+        for (int i = 1; i < pakli.getPakli().length; i++) 
+        {
+            System.out.print("%-27s".formatted(pakli.getLap(i).getLeiras()));
+            if (i % 3 == 0) 
+            {
+                System.out.println("");
+            }
+        }
+    }
 
     private void melyikVolt() {
         System.out.println("\nA választott kártya a(z) %s volt!".formatted(pakli.getLap(11).getLeiras()));
