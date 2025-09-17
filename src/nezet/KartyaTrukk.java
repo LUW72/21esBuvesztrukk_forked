@@ -20,7 +20,8 @@ public class KartyaTrukk
         
         for (int i = 0; i < 3; i++) 
         {
-            this.kirak(this.pakli);
+            this.kirakPrint(this.pakli);
+            //this.pakli.kirak(); --> ez csak a Stringet returnöli
             int oszlop = melyik();
             this.pakli.kever(oszlop);
         }
@@ -32,15 +33,17 @@ public class KartyaTrukk
     {
         int oszlopSzam;
         boolean jo;
-        do {
+        do 
+        {
             System.out.printf("\nMelyik oszlopban (1-3) van? : ");
             oszlopSzam = sc.nextInt();
             jo = oszlopSzam >= 1 && oszlopSzam <= 3;
-        } while (!jo);
+        } 
+        while (!jo);
         return oszlopSzam;
     }
 
-    public void kirak(Pakli pakli) 
+    public void kirakPrint(Pakli pakli) 
     {
         for (int i = 1; i < pakli.getPakli().length; i++) 
         {
@@ -52,7 +55,8 @@ public class KartyaTrukk
         }
     }
 
-    private void melyikVolt() {
+    private void melyikVolt() 
+    {
         System.out.println("\nA választott kártya a(z) %s volt!".formatted(pakli.getLap(11).getLeiras()));
     }
 }
