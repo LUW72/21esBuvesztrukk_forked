@@ -44,7 +44,7 @@ public class KartyaTrukk
     {
         for (int i = 1; i < pakli.getPakli().length; i++) 
         {
-            System.out.print("%-27s".formatted(pakli.getLap(i).getLeiras()));
+            System.out.print("%-28s".formatted(pakli.getLap(i).getLeiras()));
             if (i % 3 == 0) 
             {
                 System.out.println("");
