@@ -3,12 +3,14 @@ package nezet;
 import modell.Pakli;
 import java.util.Scanner;
 
-public class KartyaTrukk 
+public class KartyaTrukk_CUI 
 {
     private static Scanner sc = new Scanner(System.in);
     private Pakli pakli;
     
-    public KartyaTrukk() 
+    private static final String SEP = System.lineSeparator();
+    
+    public KartyaTrukk_CUI() 
     {
         pakli = new Pakli();
     }
@@ -16,12 +18,14 @@ public class KartyaTrukk
     
     public void indit() 
     {
-        this.pakli.feltolt();
+        this.pakli.feltoltHtml();
         
         for (int i = 0; i < 3; i++) 
-        {
-            this.kirakPrint(this.pakli);
-            //this.pakli.kirak(); --> ez csak a Stringet returnöli
+        {   
+            String s = pakli.kirakHtml();
+            //oszlopok();
+            
+            konzolraIr(s+SEP);            
             int oszlop = melyik();
             this.pakli.kever(oszlop);
         }
@@ -43,17 +47,33 @@ public class KartyaTrukk
         return oszlopSzam;
     }
 
-    public void kirakPrint(Pakli pakli) 
+//    public void kirakPrint(Pakli pakli) 
+//    {
+//        for (int i = 1; i < pakli.getPakli().length; i++) 
+//        {
+//            System.out.print("%-28s".formatted(pakli.getLap(i).getLeiras()));
+//            if (i % 3 == 0) 
+//            {
+//                System.out.println("");
+//            }
+//        }
+//    }
+    
+    private void oszlopok()
     {
-        for (int i = 1; i < pakli.getPakli().length; i++) 
+        String s = "";
+        for (int i = 1; i <= 3; i++) 
         {
-            System.out.print("%-28s".formatted(pakli.getLap(i).getLeiras()));
-            if (i % 3 == 0) 
-            {
-                System.out.println("");
-            }
+            s += String.format("%-28s", i+".");
         }
+        konzolraIr(s + SEP);
     }
+    
+    private void konzolraIr(String s)
+    {
+        System.out.print(s);
+    }
+    
 
     private void melyikVolt() 
     {

@@ -29,9 +29,7 @@ public class Pakli
     public Lap[] getPakli() 
     {
         return pakli;
-    }
-    
-    
+    }    
   
     public void feltolt() 
     {
@@ -49,6 +47,21 @@ public class Pakli
         }
     }    
     
+    public void feltoltSzintelen() 
+    {
+        String[] ertekek = {"Asz", "Kir", "Fel", "X", "IX", "VIII"};
+        String[] szinek = {"P", "T", "Z", "M"};
+        pakli[0] = new Lap("");
+        int index = 1;
+        for (int j = 0; j < ertekek.length && index < pakli.length; j++) 
+        {
+            for (int k = 0; k < szinek.length && index < pakli.length; k++) 
+            {
+                pakli[index] = new Lap("%s_%s".formatted(szinek[k], ertekek[j]));
+                index++;
+            }
+        }
+    }      
 
     
     public void kever(int oszlopSzam) 
@@ -82,5 +95,19 @@ public class Pakli
                 break;
         }
         pakli = ujPakli;
-    }    
+    }
+
+    public String kirak() 
+    {
+        String s = "";
+        for (int i = 1; i < pakli.length; i++) 
+        {
+            s += "%-28s".formatted(pakli[i].getLeiras());
+            if (i % 3 == 0) 
+            {
+                s += "\n";
+            }
+        }
+        return s;
+    }
 }
