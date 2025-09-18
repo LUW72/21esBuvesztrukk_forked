@@ -21,13 +21,11 @@ public class KartyaTrukk_JOP
     public void indit() 
     {
         //this.pakli.feltolt();
-        this.pakli.feltolt();
+        this.pakli.feltoltSzintelen();
         
         for (int i = 0; i < 3; i++) 
-        {   
-            //String s = pakli.kirak();
-            
-            int oszlop = felugroraIr(oszlopok()+SEP+pakli.kirak()+SEP);            
+        {              
+            int oszlop = felugroraIr(oszlopok()+ SEP + pakli.kirak()+SEP);            
 
             this.pakli.kever(oszlop);
         }

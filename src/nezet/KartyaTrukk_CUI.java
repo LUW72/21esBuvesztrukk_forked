@@ -18,11 +18,11 @@ public class KartyaTrukk_CUI
     
     public void indit() 
     {
-        this.pakli.feltoltHtml();
+        this.pakli.feltolt();
         
         for (int i = 0; i < 3; i++) 
         {   
-            String s = pakli.kirakHtml();
+            String s = pakli.kirak();
             //oszlopok();
             
             konzolraIr(s+SEP);            
